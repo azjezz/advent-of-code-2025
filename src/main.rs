@@ -2,6 +2,7 @@ use std::time::Instant;
 
 mod gift_shop;
 mod lobby;
+mod printing_department;
 mod secret_entrance;
 
 fn main() {
@@ -11,7 +12,7 @@ fn main() {
     run_day(1, "Secret Entrance", || {
         let stats = secret_entrance::solve();
         println!("  • Part 1 (Stops at 0):  {}", stats.stops_at_zero);
-        println!("  • Part 2 (Wraps): {}", stats.wraps);
+        println!("  • Part 2 (Wraps):       {}", stats.wraps);
     });
 
     run_day(2, "Gift Shop", || {
@@ -24,6 +25,12 @@ fn main() {
         let power = lobby::solve();
         println!("  • Part 1 (Max 2):  {}", power.max_2);
         println!("  • Part 2 (Max 12): {}", power.max_12);
+    });
+
+    run_day(4, "Printing Department", || {
+        let stats = printing_department::solve();
+        println!("  • Part 1 (Accessible):      {}", stats.accessible);
+        println!("  • Part 2 (Total Removable): {}", stats.total_removable);
     });
 }
 
