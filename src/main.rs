@@ -1,6 +1,7 @@
 use std::time::Instant;
 
 mod gift_shop;
+mod lobby;
 mod secret_entrance;
 
 fn main() {
@@ -9,14 +10,20 @@ fn main() {
 
     run_day(1, "Secret Entrance", || {
         let stats = secret_entrance::solve();
-        println!("  • Stops at 0:  {}", stats.stops_at_zero);
-        println!("  • Total wraps: {}", stats.wraps);
+        println!("  • Part 1 (Stops at 0):  {}", stats.stops_at_zero);
+        println!("  • Part 2 (Wraps): {}", stats.wraps);
     });
 
     run_day(2, "Gift Shop", || {
         let res = gift_shop::solve();
         println!("  • Part 1 (Identical): {}", res.identical_halves_sum);
         println!("  • Part 2 (Repeating): {}", res.repeating_patterns_sum);
+    });
+
+    run_day(3, "Lobby", || {
+        let power = lobby::solve();
+        println!("  • Part 1 (Max 2):  {}", power.max_2);
+        println!("  • Part 2 (Max 12): {}", power.max_12);
     });
 }
 
