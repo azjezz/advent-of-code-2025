@@ -1,5 +1,8 @@
 use std::time::Instant;
 
+use crate::cafeteria::CafeteriaStats;
+
+mod cafeteria;
 mod gift_shop;
 mod lobby;
 mod printing_department;
@@ -31,6 +34,16 @@ fn main() {
         let stats = printing_department::solve();
         println!("  • Part 1 (Accessible):      {}", stats.accessible);
         println!("  • Part 2 (Total Removable): {}", stats.total_removable);
+    });
+
+    run_day(5, "Cafeteria", || {
+        let CafeteriaStats {
+            fresh_ingredients,
+            potential_fresh_ingredients,
+        } = cafeteria::solve();
+
+        println!("  • Part 1 (Fresh Ingredients): {fresh_ingredients}");
+        println!("  • Part 2 (Usable Ranges):     {potential_fresh_ingredients}");
     });
 }
 
